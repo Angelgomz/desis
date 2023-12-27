@@ -7,7 +7,7 @@
             private $user = 'root';
             private $password = ''; 
             public function __construct(){
-               //Sobreescribo el método constructor de la clase PDO.
+           
                try{
                   parent::__construct($this->driver.':host='.$this->host.';dbname='.$this->database, $this->user, $this->password);
                 }catch(PDOException $e){
@@ -16,5 +16,4 @@
                }
             } 
     } 
-    $conection = new Database();
 ?>

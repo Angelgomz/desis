@@ -1,0 +1,44 @@
+body{
+    width:100vw;
+    height:100vh;    
+    overflow-x:hidden;
+}
+label{
+    font-size: 0.9em;
+    font-weight: 600;
+    color: gray;
+}
+input,select{
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0px !important;
+}
+input::placeholder,select::placeholder{
+    opacity: 0.5;
+    font-size:1em;
+    font-weight:bolder;
+  }
+.title,.subtitle{
+    color:#8A2BE2;
+    font-weight:bolder;
+}
+.btn-primary{
+    border-color: transparent !important;
+    background: transparent !important;
+    font-weight: bolder !important;
+}
+.form-check{
+    display:inline !important;
+}
+.form-check .form-check-input{
+    float:none !important;
+}
+.card-touch{
+    width:400px;
+    height:400px;
+    bottom:25%;
+    background-color:#8A2BE2;
+    border-radius:10px;
+    border-color:#8A2BE2;
+}
