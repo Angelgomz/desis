@@ -43,17 +43,18 @@ Installation:
 <br>
 • cd  desis  
 • Luego debe establecer la url para el dominio local a usar, en este caso sea NGNIX o Apache, 
-se ubica la carpeta que en el caso de  Windows es la  siguiente C:\Windows\System32\drivers\etc, alli se accede al archivo
+se ubica la carpeta que en el caso de  Windows es la  siguiente <strong> C:\Windows\System32\drivers\etc </strong>, alli se accede al archivo
 y al final de el pegamos lo siguiente 
-
+<br>
 <text> # localhost name resolution is handled within DNS itself.
 <br> #	127.0.0.1       localhost
 <br> #	::1             localhost
 127.0.0.1 desis.test 
 </text>
 
-Posteriormente le notificamos a nuestro apache o ngnix que esa es la url para nuestro proyecto actual desi, 
+Posteriormente le notificamos a nuestro apache o ngnix que esa es la url para nuestro proyecto actual desis, 
 el archivo con apache es el http-vhosts.conf y  alli simpelemente  agregamos lo siguiente:
+<br>
 <text>
 <VirtualHost *:80>
     DocumentRoot "C:/xampp/htdocs/"
