@@ -1,4 +1,5 @@
-![image](https://github.com/Angelgomz/desis/assets/40803106/aa6595e5-9bc3-4a5d-952f-17cde0ae2c56)DESIS SISTEMA DE VOTACIÓN:
+![image](https://github.com/Angelgomz/desis/assets/40803106/aa6595e5-9bc3-4a5d-952f-17cde0ae2c56)
+DESIS SISTEMA DE VOTACIÓN:
 
 El sistema cuenta con una pequeña interfaz y un formulario para poder votar a distintos candidatos. 
 
