@@ -1,10 +1,10 @@
-![image](https://github.com/Angelgomz/desis/assets/40803106/aa6595e5-9bc3-4a5d-952f-17cde0ae2c56)
-DESIS SISTEMA DE VOTACIÓN:
+
+<h1>DESIS SISTEMA DE VOTACIÓN: </h1>
 
 El sistema cuenta con una pequeña interfaz y un formulario para poder votar a distintos candidatos. 
-
+<h3>
 Features - Caracteristicas: 
-
+</h3>
 Manejo de Eventos Asincronos con AXIOS.
 <br>
 Selectores Dinamicos
@@ -15,8 +15,9 @@ Arquitectura MVC
 <br>
 Conexión a base de datos orientada a Objectos (PDO) 
 <br>
-
+<h3>
 Tecnologías usadas: 
+</h3>
 <br>
 • PHP 8.2 > php es un lenguaje de programación especializado en sistemas web. 
 </br>
