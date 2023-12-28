@@ -40,9 +40,9 @@ Requirements:
 
 Installation: 
 • git clone https://github.com/Angelgomz/desis.git
+<br>
 • cd  desis  
-
-Luego debe establecer la url para el dominio local a usar, en este caso sea NGNIX o Apache, 
+• Luego debe establecer la url para el dominio local a usar, en este caso sea NGNIX o Apache, 
 se ubica la carpeta que en el caso de  Windows es la  siguiente C:\Windows\System32\drivers\etc, alli se accede al archivo
 y al final de el pegamos lo siguiente 
 
