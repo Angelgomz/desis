@@ -36,7 +36,7 @@ y al final de el pegamos lo siguiente
 127.0.0.1 desis.test 
 
 Posteriormente le notificamos a nuestro apache o ngnix que esa es la url para nuestro proyecto actual desi, 
-el archivo con apache es el http-vhosts.conf y  alli simpelemente  agregamos lo siguiente:
+el archivo con apache es el http-vhosts.conf y  alli agregamos lo siguiente:
 
 <VirtualHost *:80>
     DocumentRoot "C:/xampp/htdocs/"
@@ -52,5 +52,6 @@ Esto es necesario para que las rutas de nuestro proyecto construido en MVC funci
 Luego de esto vamos a nuestro administrador de base de datos, creamos la base de datos y siguiente pegamos los scripts 
 que se encuentran en la carpeta SQL de la raiz de este proyecto. 
 
+Las variables que obtengamos de nuestra base de datos y credenciales las actualizamos y cambiamos en el siguiente directorio app\models\Model.php
 
 De esa forma encedemos nuestro servidor de php (apache, ngnix) y quedo listo para su testeo el proyecto.
