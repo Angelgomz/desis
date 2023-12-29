@@ -13,7 +13,7 @@ class Model extends PDO
     protected $search;
     protected $select = "*";
     protected $where,
-    $values = [];
+        $values = [];
     protected $orderBy;
     protected $table;
     public $pdo;
@@ -97,22 +97,14 @@ class Model extends PDO
     {
         $sql = "SELECT * FROM {$this->table}";
         return $this->pdo->query($sql)->fetchAll();
-    
     }
-    public function find($id)
+    public function vote($id, $rut_vouter, $candidate_id)
     {
-        $sql = "SELECT * FROM {$this->table} WHERE id = ?";
-        return $this->query($sql, [$id])->first();
-    }
-
-    public function vote($id,$rut_vouter,$candidate_id)
-    {
-        $sql = "INSERT INTO votes (voter_id,rut_voter,candidate_id) VALUES (?, ?, ?)";
+        $sql =
+            "INSERT INTO votes (voter_id,rut_voter,candidate_id) VALUES (?, ?, ?)";
         $smtp = $this->pdo->prepare($sql);
-        $smtp = $smtp->execute([$id,$rut_vouter,$candidate_id]);
-        return 'Votación Realizada Correctamente';
-      
-        
+        $smtp = $smtp->execute([$id, $rut_vouter, $candidate_id]);
+        return "Votación Realizada Correctamente";
     }
 
     public function create($data)
@@ -132,7 +124,7 @@ class Model extends PDO
         $smtp = $this->pdo->prepare($sql);
         $lastId = $this->pdo->lastInsertId();
         if ($lastId) {
-        $this->vote($lastId,$data["rut"],$candidate_id);
+            $this->vote($lastId, $data["rut"], $candidate_id);
         }
     }
 }
