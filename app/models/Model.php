@@ -120,7 +120,6 @@ class Model extends PDO
         if ($data["candidate_id"]) {
             $candidate_id = $data["candidate_id"];
             unset($data["candidate_id"]);
-            unset($data["option"]);
         }
         $columns = implode(", ", array_keys($data));
         $values = array_values($data);
