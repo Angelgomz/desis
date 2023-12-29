@@ -52,6 +52,6 @@ Esto es necesario para que las rutas de nuestro proyecto construido en MVC funci
 Luego de esto vamos a nuestro administrador de base de datos, creamos la base de datos y siguiente pegamos los scripts 
 que se encuentran en la carpeta SQL de la raiz de este proyecto. 
 
-Las variables que obtengamos de nuestra base de datos y credenciales las actualizamos y cambiamos en el siguiente directorio app\models\Database.php
+Las variables que obtengamos de nuestra base de datos y credenciales las actualizamos y cambiamos en el siguiente directorio app\models\Model.php
 
 De esa forma encedemos nuestro servidor de php (apache, ngnix) y quedo listo para su testeo el proyecto.
