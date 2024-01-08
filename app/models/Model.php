@@ -1,5 +1,6 @@
 <?php
 namespace App\Models;
+
 use PDO;
 
 class Model extends PDO
@@ -13,7 +14,7 @@ class Model extends PDO
     protected $search;
     protected $select = "*";
     protected $where,
-        $values = [];
+    $values = [];
     protected $orderBy;
     protected $groupBy;
     protected $table;
@@ -29,10 +30,10 @@ class Model extends PDO
         try {
             $this->pdo = new PDO(
                 $this->driver .
-                    ":host=" .
-                    $this->host .
-                    ";dbname=" .
-                    $this->database,
+                ":host=" .
+                $this->host .
+                ";dbname=" .
+                $this->database,
                 $this->user,
                 $this->password
             );
@@ -158,7 +159,7 @@ class Model extends PDO
         //DELETE FROM contacts WHERE id = 1
         $sql = "DELETE FROM {$this->table} WHERE id = ?";
         $stmt = $this->pdo->prepare($sql);
-        $smtm->execute([$id]);
+        $stmt->execute([$id]);
         return true;
     }
 }
