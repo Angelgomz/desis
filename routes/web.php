@@ -20,5 +20,6 @@ Route::post('/vote',[UserController::class,'vote']);
 Route::get('/candidates',[UserController::class,'candidates']);
 Route::get('/states',[StateController::class,'all']);
 Route::get('/communes',[CommuneController::class,'all']);
+Route::get('/update',[CommuneController::class,'updateRegister']);
 Route::dispatch();
 ?>

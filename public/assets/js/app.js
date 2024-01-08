@@ -3,7 +3,6 @@ const form = document.getElementById('form').elements;
 const formElements = Array.from(form);
 const stateSelect = document.getElementById('state_id');
 const candidates = [];
-var optionsKnowmn = [];
 var Fn = {
 	// Valida el rut con su cadena completa "XXXXXXXX-X"
 	checkRut : function (rutCompleto) {
@@ -73,11 +72,13 @@ stateSelect.addEventListener('change', function() {
 btnSubmit.addEventListener('click', function() {
     var bodyFormData = new FormData();
     var msgErrors = "";
+    var optionsKnowmn = [];
     formElements.forEach(element => {
         let name = element.getAttribute('type') != 'checkbox' ? element.getAttribute('name') : 'option';
         let value = element.value;
         let regexName = "^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$";
         let regexEmail =   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        let regexAlpha = /[a-zA-Z-0-9]/;
         switch(name){
             case 'name':
                 !value ? msgErrors = msgErrors + '<p>' + "Nombre es obligatorio. </p>" : '';
@@ -96,7 +97,7 @@ btnSubmit.addEventListener('click', function() {
                 break;
                 case 'alias':
                 !value ? msgErrors = msgErrors + '<p>' + "Alias es obligatorio. </p>" :  ' ';
-                (value.match(regexName)==null && value.length < 5) ? msgErrors = msgErrors + '<p>' + "Alias debe ser alfanumerico y mayor a 5 la cantidad de caracteres.</p>" : "";
+                (value.match(regexAlpha) == null && value.length < 5) ? msgErrors = msgErrors + '<p>' + "Alias debe ser alfanumerico y mayor a 5 la cantidad de caracteres.</p>" : "";
                 break;
             case 'commune_id':
                 !value ? msgErrors = msgErrors + '<p>' + "Seleccionar una comuna es obligatorio. </p>" : '';
@@ -108,12 +109,14 @@ btnSubmit.addEventListener('click', function() {
                 !value ? msgErrors = msgErrors + '<p>' + "Votar por algun candidato es obligatorio. </p>" : '';
                 break;
             case 'option':
+                if(element.checked)
                 optionsKnowmn.push(value);
             break;
         }
         
         name != 'option' ? bodyFormData.append(name, value) : bodyFormData.append('options',JSON.stringify(optionsKnowmn));
     });
+    console.log(optionsKnowmn);
     optionsKnowmn.length < 2 ? msgErrors = msgErrors + '<p> Debe seleccionar al menos dos opciones de cómo nos conocio.</p>' : '';
     if(msgErrors){
         Swal.fire({

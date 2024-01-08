@@ -15,6 +15,7 @@ class Model extends PDO
     protected $where,
         $values = [];
     protected $orderBy;
+    protected $groupBy;
     protected $table;
     public $pdo;
 
@@ -78,6 +79,16 @@ class Model extends PDO
 
         return $this;
     }
+    public function groupBy($column)
+    {
+        if ($this->groupBy) {
+            $this->groupBy .= ", {$column}";
+        } else {
+            $this->groupBy = "{$column}";
+        }
+
+        return $this;
+    }
     public function get($param)
     {
         if (empty($this->query)) {
@@ -126,6 +137,29 @@ class Model extends PDO
         if ($lastId) {
             $this->vote($lastId, $data["rut"], $candidate_id);
         }
+    }
+    public function update($id, $data)
+    {
+        //UPDATE contacts SET name = ?, email = ?, phone = ? WHERE id = 1
+        $fields = [];
+        foreach ($data as $key => $value) {
+            $fields[] = "{$key} = ?";
+        }
+        $fields = implode(", ", $fields);
+        $sql = "UPDATE {$this->table} SET {$fields} WHERE id = ?";
+        $values = array_values($data);
+        $values[] = $id;
+        $values = array_values($values);
+        $this->pdo->prepare($sql)->execute($values);
+    }
+
+    public function delete($id)
+    {
+        //DELETE FROM contacts WHERE id = 1
+        $sql = "DELETE FROM {$this->table} WHERE id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $smtm->execute([$id]);
+        return true;
     }
 }
 ?>
